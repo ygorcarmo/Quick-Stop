@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Animated, { color, interpolateColors, multiply } from "react-native-reanimated";
-import { useValue, onScrollEvent, interpolateColor } from "react-native-redash";
+import { useValue, onScrollEvent, interpolateColor, useScrollHandler } from "react-native-redash";
 
 
 
@@ -42,8 +42,8 @@ const slides = [
 
 const Onboarding = () => {
     const scroll = useRef<null | Animated.ScrollView>(null);
-    const x = useValue(0);
-    const onScroll = onScrollEvent({ x });
+    // const x = useValue(0);
+    const { scrollHandler, x } = useScrollHandler();
     const backgroundColor = interpolateColors(x, {
         inputRange: slides.map((_, i) => i * width),
         outputColorRange: slides.map(slide => slide.color)
@@ -58,8 +58,7 @@ const Onboarding = () => {
                     decelerationRate="fast"
                     showsHorizontalScrollIndicator={false}
                     bounces={false}
-                    scrollEventThrottle={1}
-                    {...{ onScroll }} >
+                    {...scrollHandler} >
                     {slides.map(({ title }, index) => (
                         <Slide key={index} right={!!(index % 2)} {...{ title }} />
                     ))}
@@ -72,7 +71,6 @@ const Onboarding = () => {
                         <Subslide
                             key={index}
                             onPress={() => {
-                                console.log("hello")
                                 if (scroll.current) {
                                     scroll.current.scrollTo({ x: width * (index + 1), animated: true })
                                 }
