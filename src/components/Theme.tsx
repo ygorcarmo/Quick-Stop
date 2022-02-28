@@ -18,8 +18,10 @@ const theme = {
         primary: "#2CB9D0",
         title: "#0C0D34",
         text: "rgba(12, 13, 52, 0.7)",
+        button: "#0C0D34",
         white: "white",
-        grey: "rgba(12, 13, 52, 0.05)"
+        grey: "rgba(12, 13, 52, 0.05)",
+        lightGrey: "#F4F0EF"
     },
     spacing: {
         s: 8,
@@ -27,7 +29,7 @@ const theme = {
         l: 24,
         xl: 40,
     },
-    borderRadius: {
+    borderRadii: {
         s: 4,
         m: 10,
         l: 25,
