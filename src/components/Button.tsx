@@ -1,8 +1,8 @@
 import { backgroundColor, color, useTheme } from "@shopify/restyle";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { GestureHandlerRootView, RectButton } from "react-native-gesture-handler";
-import { Theme } from "./Theme";
+import { Theme, Text } from "./Theme";
 
 const styles = StyleSheet.create({
     container: {
@@ -11,11 +11,6 @@ const styles = StyleSheet.create({
         width: 245,
         justifyContent: "center",
         alignItems: "center"
-    },
-    label: {
-        fontSize: 15,
-        fontFamily: "SFProText-Regular",
-        textAlign: "center"
     }
 })
 
@@ -28,14 +23,14 @@ interface ButtonProps {
 const Button = ({ variant, label, onPress }: ButtonProps) => {
     const theme = useTheme<Theme>();
 
-    const backgroundColor = variant === "primary" ? theme.colors.primary : theme.colors.body;
+    const backgroundColor = variant === "primary" ? theme.colors.primary : theme.colors.grey;
     const color = variant === "primary" ? theme.colors.white : theme.colors.text
 
     return (
         <GestureHandlerRootView>
             <RectButton style={[styles.container, { backgroundColor }]} {...{ onPress }}>
                 <View>
-                    <Text style={[styles.label, { color }]}>{label}</Text>
+                    <Text variant="button" style={{ color }}>{label}</Text>
                 </View>
             </RectButton>
         </GestureHandlerRootView>

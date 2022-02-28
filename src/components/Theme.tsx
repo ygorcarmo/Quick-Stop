@@ -1,4 +1,4 @@
-import { BaseTheme, createText } from "@shopify/restyle";
+import { createText } from "@shopify/restyle";
 
 const palette = {
     purpleLight: '#8C6FF7',
@@ -13,12 +13,13 @@ const palette = {
     white: '#F0F2F3',
 };
 
-const theme: BaseTheme = {
+const theme = {
     colors: {
         primary: "#2CB9D0",
         title: "#0C0D34",
         text: "rgba(12, 13, 52, 0.7)",
-        white: "white"
+        white: "white",
+        grey: "rgba(12, 13, 52, 0.05)"
     },
     spacing: {
         s: 8,
@@ -51,6 +52,12 @@ const theme: BaseTheme = {
             fontFamily: "SFProText-Regular",
             color: "text"
         },
+        button: {
+            fontSize: 15,
+            lineHeight: 24,
+            fontFamily: "SFProText-Medium",
+            color: "text"
+        }
     },
     breakpoints: {},
 };
