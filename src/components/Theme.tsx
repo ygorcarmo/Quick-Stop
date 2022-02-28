@@ -31,31 +31,31 @@ const theme = {
         hero: {
             fontSize: 80,
             lineHeight: 80,
-            fontFamily: "SFProText-Bold",
+            fontFamily: "SFProDisplay-Bold",
             color: "white",
             textAlign: "center"
         },
         title1: {
             fontSize: 30,
-            fontFamily: "SFProText-Semibold",
+            fontFamily: "SFProDisplay-Semibold",
             color: "title"
         },
         title2: {
             fontSize: 24,
             lineHeight: 30,
-            fontFamily: "SFProText-Semibold",
+            fontFamily: "SFProDisplay-Semibold",
             color: "title"
         },
         body: {
             fontSize: 16,
             lineHeight: 24,
-            fontFamily: "SFProText-Regular",
+            fontFamily: "SFProDisplay-Regular",
             color: "text"
         },
         button: {
             fontSize: 15,
             lineHeight: 24,
-            fontFamily: "SFProText-Medium",
+            fontFamily: "SFProDisplay-Medium",
             color: "text"
         }
     },
