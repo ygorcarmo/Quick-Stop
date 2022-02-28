@@ -1,16 +1,14 @@
 import React, { useRef } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import Animated, { color, divide, interpolateColors, multiply } from "react-native-reanimated";
-import { useValue, onScrollEvent, interpolateColor, useScrollHandler } from "react-native-redash";
+import Animated, { divide, interpolateColors, multiply } from "react-native-reanimated";
+import { useScrollHandler } from "react-native-redash";
 
 
 
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import Subslide from "./Subslide";
 import Dot from "./Dot";
-
-const BORDER_RADIUS = 75;
+import { theme } from "../../components";
 
 const { width } = Dimensions.get("window");
 
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
     slider: {
         height: SLIDE_HEIGHT,
         backgroundColor: "cyan",
-        borderBottomRightRadius: BORDER_RADIUS
+        borderBottomRightRadius: theme.borderRadius.xl
     },
     footer: {
         flex: 1,
@@ -30,12 +28,12 @@ const styles = StyleSheet.create({
     footerContent: {
         flex: 1,
         backgroundColor: "white",
-        borderTopLeftRadius: BORDER_RADIUS
+        borderTopLeftRadius: theme.borderRadius.xl
     },
     pagination: {
         ...StyleSheet.absoluteFillObject,
         flexDirection: "row",
-        height: BORDER_RADIUS,
+        height: theme.borderRadius.xl,
         justifyContent: "center",
         alignItems: "center"
     },

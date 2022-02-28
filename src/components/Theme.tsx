@@ -31,7 +31,7 @@ const theme = {
         s: 4,
         m: 10,
         l: 25,
-        xl: 40,
+        xl: 75,
     },
     textVariants: {
         hero: {
