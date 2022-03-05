@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, Image } from 'react-native';
 import theme, { Box, Text } from '../../components/Theme';
 import { Button } from '../../components';
+import { AuthenticationRoutes, StackNavigationProps } from '../../components/Navigation';
 
 interface Welcome { }
 
@@ -14,7 +15,7 @@ const picture = {
 
 export const assets = [picture.src];
 
-const Welcome = () => {
+const Welcome = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "Welcome">) => {
     return (
         <Box flex={1} backgroundColor="white">
             <Box flex={1} borderBottomRightRadius="xl" backgroundColor='grey' alignItems='center' justifyContent='flex-end' >
@@ -51,7 +52,7 @@ const Welcome = () => {
                     </Text>
                     <Button variant="primary"
                         label='Have an account? Login'
-                        onPress={() => { }}
+                        onPress={() => navigation.navigate('Login')}
                     />
                     <Button label="Joing us, it's Free"
                         onPress={() => { }}

@@ -1,4 +1,4 @@
-import { backgroundColor, color, useTheme } from "@shopify/restyle";
+import { useTheme } from "@shopify/restyle";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { GestureHandlerRootView, RectButton } from "react-native-gesture-handler";

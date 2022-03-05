@@ -9,8 +9,7 @@ import Slide, { SLIDE_HEIGHT } from "./Slide";
 import Subslide from "./Subslide";
 import Dot from "./Dot";
 import { theme } from "../../components";
-import { AppRoutes, StackNavigationProps } from "../../components/Navigation";
-import { RouterConfigOptions } from "@react-navigation/native";
+import { AuthenticationRoutes, StackNavigationProps } from "../../components/Navigation";
 
 const { width } = Dimensions.get("window");
 
@@ -48,7 +47,7 @@ const slides = [
     { title: "Funky", subtitle: "Look Good, Feel Good", description: "Discover the latest trends in fashion and empower your personality", color: "#FFDDDD" }
 ];
 
-const Onboarding = ({ navigation }: StackNavigationProps<AppRoutes, "Onboarding">) => {
+const Onboarding = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "Onboarding">) => {
     const scroll = useRef<null | Animated.ScrollView>(null);
     // const x = useValue(0);
     const { scrollHandler, x } = useScrollHandler();

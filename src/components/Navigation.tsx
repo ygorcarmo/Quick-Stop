@@ -25,8 +25,8 @@ export interface HomeNavigationProps<RouteName extends keyof HomeRoutes> {
 }
 
 export type AppRoutes = {
-    Onboarding: undefined;
-    Welcome: undefined;
+    Authentication: undefined;
+    Home: undefined;
 };
 
 export type AuthenticationRoutes = {
