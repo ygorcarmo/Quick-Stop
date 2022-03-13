@@ -65,9 +65,9 @@ const defaultOutfits = [
   },
 ];
 
-const FavoritesOutfits = ({
+const FavoritesPetrolStations = ({
   navigation,
-}: HomeNavigationProps<"FavoriteOutfits">) => {
+}: HomeNavigationProps<"FavoritePetrolStations">) => {
   const transition = (
     <Transition.Together>
       <Transition.Out type="fade" />
@@ -137,4 +137,4 @@ const FavoritesOutfits = ({
   );
 };
 
-export default FavoritesOutfits;
+export default FavoritesPetrolStations;
