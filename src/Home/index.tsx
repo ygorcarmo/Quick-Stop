@@ -4,12 +4,14 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { HomeRoutes } from "../components/Navigation";
 
 import DrawerContent, { DRAWER_WIDTH } from "./Drawer";
-import OutfitIdeas from "./OutfitIdeas";
-import FavoriteOutfits from "./FavoriteOutfits";
+import PetrolStations from "./PetrolStations";
+import FavoritePetrolStations from "./FavoritePetrolStations";
 import TransactionHistory from "./TransactionHistory";
 import EditProfile from "./EditProfile";
 import Settings from "./Settings";
 import Cart from "./Cart";
+import Payment from "./Payment";
+import PaymentConfirmation from "./PaymentConfimartion";
 export { assets } from "./Drawer";
 
 const Drawer = createDrawerNavigator<HomeRoutes>();
@@ -20,11 +22,13 @@ export const HomeNavigator = () => (
       width: DRAWER_WIDTH,
     }}
   >
-    <Drawer.Screen name="OutfitIdeas" component={OutfitIdeas} />
-    <Drawer.Screen name="FavoriteOutfits" component={FavoriteOutfits} />
+    <Drawer.Screen name="PetrolStations" component={PetrolStations} />
+    <Drawer.Screen name="FavoritePetrolStations" component={FavoritePetrolStations} />
+    <Drawer.Screen name="Payment" component={Payment} />
     <Drawer.Screen name="TransactionHistory" component={TransactionHistory} />
     <Drawer.Screen name="EditProfile" component={EditProfile} />
     <Drawer.Screen name="Settings" component={Settings} />
     <Drawer.Screen name="Cart" component={Cart} />
+    <Drawer.Screen name="PaymentConfirmation" component={PaymentConfirmation} />
   </Drawer.Navigator>
 );
