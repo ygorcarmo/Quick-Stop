@@ -56,7 +56,7 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
               ...StyleSheet.absoluteFillObject,
               width,
               height,
-              top: -height * 0.61,
+              top: -height * 0.61
             }}
           />
           <Box
@@ -65,6 +65,7 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
             flex={1}
             justifyContent="center"
             padding="xl"
+            borderTopLeftRadius={0}
           >
             {children}
           </Box>
