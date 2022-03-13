@@ -9,6 +9,7 @@ import {
 import { Box, useTheme, Text, Header } from "../../components";
 
 import DrawerItem, { DrawerItemProps } from "./DrawerItem";
+import { ScrollView } from "react-native-gesture-handler";
 
 export const assets = [require("./assets/drawer.png")];
 const { width } = Dimensions.get("window");
@@ -19,14 +20,20 @@ const items: DrawerItemProps[] = [
   {
     icon: "zap",
     label: "Petrol Stations",
-    screen: "OutfitIdeas",
+    screen: "PetrolStations",
     color: "primary",
   },
   {
     icon: "heart",
     label: "Favorite Stations",
-    screen: "FavoriteOutfits",
+    screen: "FavoritePetrolStations",
     color: "drawer1",
+  },
+  {
+    icon: "credit-card",
+    label: "Petrol Payment",
+    screen: "Payment",
+    color: "drawer2",
   },
   {
     icon: "user",
@@ -119,9 +126,11 @@ const Drawer = () => {
               mike@flexinstudio.com
             </Text>
           </Box>
-          {items.map((item) => (
-            <DrawerItem key={item.icon} {...item} />
-          ))}
+          <ScrollView>
+            {items.map((item) => (
+              <DrawerItem key={item.icon} {...item} />
+            ))}
+          </ScrollView>
         </Box>
       </Box>
       <Box

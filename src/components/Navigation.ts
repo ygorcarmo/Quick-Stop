@@ -31,10 +31,12 @@ export type AuthenticationRoutes = {
 };
 
 export type HomeRoutes = {
-  OutfitIdeas: undefined;
-  FavoriteOutfits: undefined;
+  PetrolStations: undefined;
+  FavoritePetrolStations: undefined;
   TransactionHistory: undefined;
   EditProfile: undefined;
   Settings: undefined;
   Cart: undefined;
+  Payment: undefined;
+  PaymentConfirmation: undefined;
 };
