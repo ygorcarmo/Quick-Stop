@@ -1,0 +1,16 @@
+org: ygorcarmo
+app: quick-stop-serverless
+service: quick-stop-serverless
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  httpApi:
+    cors: true
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi: "*"
