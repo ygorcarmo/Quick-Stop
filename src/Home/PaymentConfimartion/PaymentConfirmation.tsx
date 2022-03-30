@@ -44,7 +44,7 @@ const PaymentConfirmation = ({ navigation }: HomeNavigationProps<"PaymentConfirm
                         />
                     </Box>
                     <Text variant="title1" textAlign="center" marginVertical="l">
-                        Your Payment was successfully
+                        Payment Successfull
                     </Text>
                     <Text variant="body" textAlign="center" marginBottom="l">
                         Close this window and continue with your journey

@@ -1,52 +1,34 @@
 import React, { useState } from "react";
-import { useTiming } from "react-native-redash";
-import { ScrollView, Dimensions } from "react-native";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { CommonActions } from "@react-navigation/native";
-import { Box, Header, useTheme, Text } from "../../components";
+import { ScrollView } from "react-native";
+import { Box, Header, theme } from "../../components";
 import { HomeNavigationProps } from "../../components/Navigation";
-import { BorderlessButton } from "react-native-gesture-handler";
 import TextInput from "../../components/Form/TextInput";
-import Checkbox from "../../components/Form/Checkbox";
 
 import Footer from "./Footer";
-const { width: wWidth } = Dimensions.get("window");
+import { CARD_HEIGHT } from "../Cart/CardLayout";
+import AddCard from "../Cart/AddCard";
+import Card, { CardType } from "../Cart/Card";
 
-const PaymentSchema = Yup.object().shape({
-    password: Yup.string()
-        .min(2, "Too Short!")
-        .max(50, "Too Long!")
-        .required("Required"),
-    email: Yup.string().email("Invalid email").required("Required"),
-});
+const cards = [
+    {
+        id: 0,
+        type: CardType.VISA,
+        last4Digits: 5467,
+        expiration: "05/24",
+    },
+    {
+        id: 1,
+        type: CardType.MASTERCARD,
+        last4Digits: 2620,
+        expiration: "05/24",
+    },
+];
+
 
 const Payment = ({ navigation }: HomeNavigationProps<"Payment">) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const aIndex = useTiming(currentIndex); const theme = useTheme();
-
-    const width = (wWidth - theme.spacing.m * 3) / 2;
     const [footerHeight, setFooterHeight] = useState(0);
+    const [selectedCard, setSelectedCard] = useState(cards[0].id);
 
-    const {
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        errors,
-        touched,
-        values,
-        setFieldValue,
-    } = useFormik({
-        validationSchema: PaymentSchema,
-        initialValues: { email: "", password: "", remember: true },
-        onSubmit: () =>
-            navigation.dispatch(
-                CommonActions.reset({
-                    index: 0,
-                    routes: [{ name: "Home" }],
-                })
-            ),
-    });
 
     return (
         <Box flex={1} backgroundColor="background">
@@ -65,73 +47,23 @@ const Payment = ({ navigation }: HomeNavigationProps<"Payment">) => {
                         <TextInput
                             icon="droplet"
                             placeholder="Enter Pump Number"
-                            onChangeText={handleChange("email")}
-                            onBlur={handleBlur("email")}
-                            error={errors.email}
-                            touched={touched.email}
                             autoCapitalize="none"
-                            autoCompleteType="email"
                             returnKeyType="next"
                             returnKeyLabel="next"
-                        // onSubmitEditing={() => password.current?.focus()}
                         />
                     </Box>
-                    <Box marginBottom="m">
-                        <TextInput
-                            icon="credit-card"
-                            placeholder="Enter Card Number"
-                            onChangeText={handleChange("email")}
-                            onBlur={handleBlur("email")}
-                            error={errors.email}
-                            touched={touched.email}
-                            autoCapitalize="none"
-                            autoCompleteType="email"
-                            returnKeyType="next"
-                            returnKeyLabel="next"
-                        // onSubmitEditing={() => password.current?.focus()}
-                        />
-                    </Box>
-                    <Box marginBottom="m">
-                        <TextInput
-                            icon="calendar"
-                            placeholder="Enter Card Expiry Date"
-                            onChangeText={handleChange("email")}
-                            onBlur={handleBlur("email")}
-                            error={errors.email}
-                            touched={touched.email}
-                            autoCapitalize="none"
-                            autoCompleteType="email"
-                            returnKeyType="next"
-                            returnKeyLabel="next"
-                        // onSubmitEditing={() => password.current?.focus()}
-                        />
-                    </Box>
-                    <TextInput
-                        // ref={password}
-                        icon="credit-card"
-                        placeholder="Enter CVC"
-                        onChangeText={handleChange("password")}
-                        onBlur={handleBlur("password")}
-                        error={errors.password}
-                        touched={touched.password}
-                        autoCompleteType="password"
-                        autoCapitalize="none"
-                        returnKeyType="go"
-                        returnKeyLabel="go"
-                        onSubmitEditing={() => handleSubmit()}
-                        secureTextEntry
-                    />
-                    <Box
-                        flexDirection="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        marginVertical="s"
-                    >
-                        <Checkbox
-                            label="Remember details"
-                            checked={values.remember}
-                            onChange={() => setFieldValue("remember", !values.remember)}
-                        />
+                    <Box height={CARD_HEIGHT}>
+                        <ScrollView horizontal>
+                            <AddCard />
+                            {cards.map((card) => (
+                                <Card
+                                    key={card.id}
+                                    card={card}
+                                    selected={selectedCard === card.id}
+                                    onSelect={() => setSelectedCard(card.id)}
+                                />
+                            ))}
+                        </ScrollView>
                     </Box>
                 </ScrollView>
                 <Box

@@ -4,13 +4,6 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Box, Text } from "../../components";
 import TextInput from "../../components/Form/TextInput";
 
-import CheckboxGroup from "./CheckboxGroup";
-
-const genders = [
-  { value: "male", label: "Male" },
-  { value: "female", label: "Female" },
-];
-
 const PersonalInfo = () => {
   return (
     <ScrollView>
@@ -43,7 +36,6 @@ const PersonalInfo = () => {
             autoCompleteType="street-address"
           />
         </Box>
-        <CheckboxGroup options={genders} radio />
       </Box>
     </ScrollView>
   );
