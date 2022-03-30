@@ -12,6 +12,7 @@ import { HomeNavigationProps } from "../../components/Navigation";
 import Outfit from "./Outfit";
 import Footer from "./Footer";
 import TopCurve from "./TopCurve";
+import StationsCard, { StationType } from "./StationsCard";
 
 const { width: wWidth } = Dimensions.get("window");
 const defaultOutfits = [
@@ -64,6 +65,29 @@ const defaultOutfits = [
     selected: false,
   },
 ];
+const cards = [
+  {
+    id: 0,
+    type: StationType.BP,
+    address: "go loco",
+    petrolType: "P95",
+    petrolPrice: 2.99
+  },
+  {
+    id: 1,
+    type: StationType.SHELL,
+    address: "go crazy",
+    petrolType: "P95",
+    petrolPrice: 2.20
+  },
+  {
+    id: 2,
+    type: StationType.METRO,
+    address: "go crazy",
+    petrolType: "P95",
+    petrolPrice: 2.50
+  },
+];
 
 const FavoritesPetrolStations = ({
   navigation,
@@ -74,6 +98,7 @@ const FavoritesPetrolStations = ({
       <Transition.In type="fade" />
     </Transition.Together>
   );
+  const [selectedCard, setSelectedCard] = useState(cards[0].id);
   const list = useRef<TransitioningView>(null);
   const [outfits, setOutfits] = useState(defaultOutfits);
   const theme = useTheme();
@@ -96,17 +121,19 @@ const FavoritesPetrolStations = ({
           <Transitioning.View ref={list} transition={transition}>
             <Box flexDirection="row">
               <Box marginRight="m">
-                {outfits
+                {cards
                   .filter((_, i) => i % 2 !== 0)
-                  .map((outfit) => (
-                    <Outfit key={outfit.id} outfit={outfit} width={width} />
+                  .map((card) => (
+                    <StationsCard key={card.id} card={card} selected={selectedCard === card.id}
+                      onSelect={() => setSelectedCard(card.id)} />
                   ))}
               </Box>
               <Box>
-                {outfits
+                {cards
                   .filter((_, i) => i % 2 === 0)
-                  .map((outfit) => (
-                    <Outfit key={outfit.id} outfit={outfit} width={width} />
+                  .map((card) => (
+                    <StationsCard key={card.id} card={card} selected={selectedCard === card.id}
+                      onSelect={() => setSelectedCard(card.id)} />
                   ))}
               </Box>
             </Box>
@@ -124,13 +151,13 @@ const FavoritesPetrolStations = ({
             },
           }) => setFooterHeight(height)}
         >
-          <Footer
+          {/* <Footer
             label="Add to Favorites"
             onPress={() => {
               list.current?.animateNextTransition();
               setOutfits(outfits.filter((outfit) => !outfit.selected));
             }}
-          />
+          /> */}
         </Box>
       </Box>
     </Box>
