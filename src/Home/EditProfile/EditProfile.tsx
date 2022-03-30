@@ -51,10 +51,10 @@ const EditProfile = ({ navigation }: HomeNavigationProps<"EditProfile">) => {
         />
         <Box marginVertical="m" style={{ marginTop: 50 + theme.spacing.m }}>
           <Text variant="title1" textAlign="center">
-            Mike Peter
+            Test
           </Text>
           <Text variant="body" textAlign="center">
-            mike@flexinstudio.com
+            test@gmail.com
           </Text>
         </Box>
       </Box>

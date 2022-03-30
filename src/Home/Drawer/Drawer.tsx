@@ -120,10 +120,10 @@ const Drawer = () => {
           />
           <Box marginVertical="m">
             <Text variant="title1" textAlign="center">
-              Mike Peter
+              Test
             </Text>
             <Text variant="body" textAlign="center">
-              mike@flexinstudio.com
+              test@gmail.com
             </Text>
           </Box>
           <ScrollView>

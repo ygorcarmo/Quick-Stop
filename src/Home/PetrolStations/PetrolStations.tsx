@@ -53,7 +53,9 @@ const PetrolStations = ({ navigation }: HomeNavigationProps<"PetrolStations">) =
         "https://95yehb6zv9.execute-api.us-east-1.amazonaws.com/"
       )
         .then((response) => response.json())
-        .then(async (data) => {
+        .then((data) => {
+          console.log(Object.keys(data.stations).length);
+          console.log(data)
           for (let i = 0; i < Object.keys(data.stations).length; i++) {
             stations.push({
               stationName: data.stations[i].name,
@@ -96,6 +98,9 @@ const PetrolStations = ({ navigation }: HomeNavigationProps<"PetrolStations">) =
                 title={station.stationName}
                 coordinate={{ latitude: station.latitude, longitude: station.longitude }}
               >
+                <View style={{ padding: 5 }}>
+                  <Text>{station.petrolPrice}</Text>
+                </View>
               </Marker>
             ))
 

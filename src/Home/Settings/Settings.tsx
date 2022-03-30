@@ -16,20 +16,20 @@ const Settings = ({ navigation }: HomeNavigationProps<"Settings">) => {
         />
         <Box padding="m">
           <Notification
-            title="Outfit Ideas"
+            title="Bargains"
             description="Receive daily notifications"
           />
           <Notification
             title="Discounts & Sales"
             description="Buy the stuff you love for less"
           />
-          <Notification
+          {/* <Notification
             title="Stock Notifications"
             description="If the product you 💜 comes back in stock"
-          />
+          /> */}
           <Notification
             title="New Stuff"
-            description="Hear it first, wear it first"
+            description="Hear it first, Know it first"
           />
         </Box>
       </Box>

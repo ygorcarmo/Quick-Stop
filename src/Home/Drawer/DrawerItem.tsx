@@ -26,7 +26,7 @@ export type DrawerItemProps = ScreenDrawerItem | OnPressDrawerItem;
 const DrawerItem = ({ icon, color, label, ...props }: DrawerItemProps) => {
   const theme = useTheme();
   const navigation = useNavigation<
-    DrawerNavigationProp<HomeRoutes, "OutfitIdeas">
+    DrawerNavigationProp<HomeRoutes, "PetrolStations">
   >();
   return (
     <RectButton
